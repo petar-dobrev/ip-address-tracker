@@ -1,17 +1,17 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import IPContext from "../context/IPContext";
 
 
 function Search() {
-    const {ip, setIP, fetchIP} = useContext(IPContext)
-
-   const handleChange = (e) => {
+   const {ip, setIP, fetchIP} = useContext(IPContext)
+  
+    const handleChange = (e) => {
        setIP(e.target.value)
-   }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetchIP()
+            fetchIP()
     }
 
   return (

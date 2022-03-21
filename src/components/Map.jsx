@@ -1,5 +1,5 @@
 import "../index.css"
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import IPContext from "../context/IPContext";
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import {Icon} from 'leaflet'

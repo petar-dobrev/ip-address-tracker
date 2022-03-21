@@ -12,7 +12,6 @@ export const IPProvider = ({ children }) => {
   const fetchIP = async () => {
     const response = await fetch(`${IPIFY_URL}?apiKey=${IPIFY_API_KEY}&ipAddress=${ip}`);
     const data = await response.json();
-
     setIPData(data);
     setLocationCoordinates([data.location.lat, data.location.lng]);
   };
