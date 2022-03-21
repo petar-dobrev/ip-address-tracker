@@ -15,7 +15,7 @@
 }
 
 .header {
-  height: 35vh;
+  height: 45vh;
   width: 100%;
   background-image: url(./components/assets/pattern-bg.png);
   background-repeat: no-repeat;
@@ -78,7 +78,7 @@
   width: 90%;
   position: absolute;
   z-index: 1000;
-  top: 35vh;
+  top: 45vh;
   transform: translateY(-50%);
   margin-inline: 5%;
   padding: 2rem;
@@ -106,7 +106,7 @@
 
 .leaflet-container {
   width: 100%;
-  height: 65vh;
+  height: 55vh;
 }
 
 @media (min-width: 1024px) {
