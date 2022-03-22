@@ -21,8 +21,8 @@ function IPData() {
         </div>
       )
   } 
-
-  if (!statsAreHidden) {return (
+  
+      return statsAreHidden === false && (
     <div className="ip-data-container">
         <div className="ip-data-stats">
             {generateStats("IP ADDRESS", ipAddressValue)}
@@ -31,9 +31,7 @@ function IPData() {
             {generateStats("ISP", ispValue)}
         </div>
     </div>
-  )} else {
-      return null
-  }
+  )
 }
 
 export default IPData

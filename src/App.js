@@ -8,7 +8,7 @@ function App() {
   return (
     <IPProvider>
       <div className="app-container">
-        <Header />
+        <Header title="IP Address Tracker" />
         <IPData />
         <Map />
       </div>

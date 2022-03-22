@@ -54,7 +54,38 @@
   outline-color: var(--very-dark-gray);
 }
 
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3000;
+  min-height: 6rem;
+  max-width: 90%;
+  padding: 1rem;
+  background-color: var(--very-dark-gray);
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
+  animation: alert 100ms linear;
+}
+
 .button {
+  cursor: pointer;
+  border: none;
+}
+
+.button-alert {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--dark-gray);
+}
+
+.button-search {
   height: 4rem;
   aspect-ratio: 1;
   background-color: var(--very-dark-gray);
@@ -65,8 +96,6 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-left: -1px;
-  cursor: pointer;
-  border: none;
   outline-color: var(--very-dark-gray);
 }
 
@@ -155,8 +184,17 @@
   .ip-data-stat-label {
     font-size: 0.6rem;
   }
-  
+
   .ip-data-stat-value {
     font-size: 1rem;
+  }
+}
+
+@keyframes alert {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
