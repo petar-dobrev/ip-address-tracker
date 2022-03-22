@@ -3,9 +3,10 @@ import IPContext from "../context/IPContext";
 
 function IPData() {
 
-  const {ipData} = useContext(IPContext)
+  const {ipData, statsAreHidden} = useContext(IPContext)
       
-  return (
+  if (!statsAreHidden) {return (
+      
     <div className="ip-data-container">
         <div className="ip-data-stats">
             <div className="ip-data-stat">
@@ -26,7 +27,9 @@ function IPData() {
             </div>
         </div>
     </div>
-  )
+  )} else {
+      return null
+  }
 }
 
 export default IPData

@@ -8,6 +8,7 @@ export const IPProvider = ({ children }) => {
   const [ip, setIP] = useState("");
   const [ipData, setIPData] = useState({});
   const [locationCoordinates, setLocationCoordinates] = useState([40.73, -73.93]);
+  const [statsAreHidden, setStatsAreHidden] = useState(false);
 
   const fetchIP = async () => {
     const response = await fetch(`${IPIFY_URL}?apiKey=${IPIFY_API_KEY}&ipAddress=${ip}`);
@@ -22,7 +23,9 @@ export const IPProvider = ({ children }) => {
         ip,
         ipData,
         locationCoordinates,
+        statsAreHidden,
         setIP,
+        setStatsAreHidden,
         fetchIP,
       }}
     >

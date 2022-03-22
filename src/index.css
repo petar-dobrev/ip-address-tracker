@@ -34,6 +34,8 @@
 }
 
 .search-container {
+  position: relative;
+  z-index: 2000;
   width: 90%;
   display: flex;
   align-items: center;
@@ -142,5 +144,11 @@
 @media (min-width: 1440px) {
   .ip-data-stats {
     max-width: 1024px;
+  }
+}
+
+@media (max-height: 650px) {
+  .ip-data-stats {
+    top: 60vh;
   }
 }
