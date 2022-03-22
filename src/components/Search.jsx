@@ -9,6 +9,16 @@ function Search() {
        setIP(e.target.value)
     }
 
+    const handleFocus = () => {
+      if (window.innerHeight < 250) {
+        setStatsAreHidden(true);
+        } 
+      }
+
+    const handleBlur = () => {
+      setStatsAreHidden(false);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
             fetchIP()
@@ -22,16 +32,9 @@ function Search() {
         placeholder="Search for any IP address or domain"
         value={ip}
         onChange={handleChange}
-        onFocus={() => {
-          if (window.innerHeight < 250) {
-            setStatsAreHidden(true);
-            console.log("true")
-          }
-          console.log("true2")
-        }}
-        onBlur={() => {
-          setStatsAreHidden(false);
-        }}/>
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        />
         <button type="submit" className="button"><img src="./assets/icon-arrow.svg" alt="" /></button>
     </form>
   )
