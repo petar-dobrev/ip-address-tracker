@@ -1,24 +1,25 @@
 import { useContext } from "react";
-import IPContext from "../context/IPContext";
-import checkIfDomainOrIp from "../utils/checkIfDomainOrIp";
+import IpContext from "../context/IpContext";
+import { isValidAddress } from "../utils/isValidAddress";
 import Alert from "./Alert";
 
-
 function Search() {
-   const {address, setAddress, fetchIP, setStatsAreHidden, setAlert} = useContext(IPContext)
+   const {address, setAddress, fetchIp, setHideStats, setAlert} = useContext(IpContext)
   
     const handleChange = (e) => {
        setAddress(e.target.value)
     }
 
     const handleFocus = () => {
-      if (window.innerHeight < 250) {
-        setStatsAreHidden(true);
+      const minHeightFullApp = 250;
+
+      if (window.innerHeight < minHeightFullApp) {
+        setHideStats(true);
         } 
       }
 
     const handleBlur = () => {
-      setStatsAreHidden(false);
+      setHideStats(false);
     }
 
     const handleSubmit = (e) => {
@@ -26,9 +27,9 @@ function Search() {
 
         if (address === "") {
           setAlert("Please enter something")
-        } else if (!checkIfDomainOrIp(address)) {
+        } else if (!isValidAddress(address)) {
             setAlert("Please enter a valid IP or domain address")
-          } else {fetchIP()}     
+          } else {fetchIp()}     
     }
 
   return (

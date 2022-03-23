@@ -1,6 +1,6 @@
 import "../index.css"
 import { useContext } from "react";
-import IPContext from "../context/IPContext";
+import IpContext from "../context/IpContext";
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import {Icon} from 'leaflet'
 
@@ -9,7 +9,7 @@ const marker = new Icon({
 })
 
 function Map() {
-  const {locationCoordinates} = useContext(IPContext)
+  const {locationCoordinates} = useContext(IpContext)
 
   return (
             <MapContainer key={locationCoordinates} center={locationCoordinates} zoom={12}scrollWheelZoom={false} >

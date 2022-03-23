@@ -1,16 +1,16 @@
 import { useContext } from "react";
 
 import { FaTimes } from "react-icons/fa"
-import IPContext from "../context/IPContext";
+import IpContext from "../context/IpContext";
 
 function Alert() {
-  const {alert, setAlert} = useContext(IPContext);
+  const {alert, setAlert} = useContext(IpContext);
 
   const handleClick = () => {
       setAlert(null)
   }
 
-  return alert !== null && (
+  return !!alert && (
     <div className="alert">
         {alert}
         <button 

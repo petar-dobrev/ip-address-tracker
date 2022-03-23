@@ -1,18 +1,18 @@
 import "./index.css";
 import Header from "./components/Header";
-import IPData from "./components/IPData";
+import IPData from "./components/IpData";
 import Map from "./components/Map";
-import { IPProvider } from "./context/IPContext";
+import { IpProvider } from "./context/IpContext";
 
 function App() {
   return (
-    <IPProvider>
+    <IpProvider>
       <div className="app-container">
         <Header title="IP Address Tracker" />
         <IPData />
         <Map />
       </div>
-    </IPProvider>
+    </IpProvider>
   );
 }
 

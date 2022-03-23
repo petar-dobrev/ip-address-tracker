@@ -1,21 +1,21 @@
 import { createContext, useState } from "react";
-import checkIfDomain from "../utils/checkIfDomain";
+import { isValidDomain } from "../utils/isValidAddress";
 
-const IPContext = createContext();
+const IpContext = createContext();
 const IPIFY_URL = "https://geo.ipify.org/api/v2/country,city";
 const IPIFY_API_KEY = "at_TkVUYo7jNxQubECoy6MYj4NBM691U";
 
-export const IPProvider = ({ children }) => {
+export const IpProvider = ({ children }) => {
   const [address, setAddress] = useState("");
   const [ipData, setIPData] = useState({});
   const [locationCoordinates, setLocationCoordinates] = useState([40.73, -73.93]);
-  const [statsAreHidden, setStatsAreHidden] = useState(false);
+  const [hideStats, setHideStats] = useState(false);
   const [alert, setAlert] = useState(null);
 
   let lookFor = "&ipAddress=";
 
-  const fetchIP = async () => {
-    if (checkIfDomain(address)) {
+  const fetchIp = async () => {
+    if (isValidDomain(address)) {
       lookFor = "&domain=";
     }
 
@@ -32,22 +32,22 @@ export const IPProvider = ({ children }) => {
   };
 
   return (
-    <IPContext.Provider
+    <IpContext.Provider
       value={{
         address,
         ipData,
         locationCoordinates,
-        statsAreHidden,
+        hideStats,
         alert,
         setAddress,
-        setStatsAreHidden,
-        fetchIP,
+        setHideStats,
+        fetchIp,
         setAlert,
       }}
     >
       {children}
-    </IPContext.Provider>
+    </IpContext.Provider>
   );
 };
 
-export default IPContext;
+export default IpContext;

@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import IPContext from "../context/IPContext";
+import IpContext from "../context/IpContext";
 
-function IPData() {
+function IpData() {
 
-  const {ipData, statsAreHidden} = useContext(IPContext)
+  const {ipData, hideStats} = useContext(IpContext)
   
   const locationCity = ipData?.location?.city || "";
   const locationCountry = ipData?.location?.country || "";
@@ -13,7 +13,7 @@ function IPData() {
   const timezoneValue = ipData?.location?.timezone || "";
   const ispValue = ipData?.isp || "";
 
-  const generateStats = (statLabel, statValue) => {
+  const composeStats = (statLabel, statValue) => {
       return (
         <div className="ip-data-stat">
             <h2 className="ip-data-stat-label">{statLabel}</h2>
@@ -22,16 +22,16 @@ function IPData() {
       )
   } 
   
-      return statsAreHidden === false && (
+      return hideStats === false && (
     <div className="ip-data-container">
         <div className="ip-data-stats">
-            {generateStats("IP ADDRESS", ipAddressValue)}
-            {generateStats("LOCATION", locationValue)}
-            {generateStats("TIMEZONE", timezoneValue)}
-            {generateStats("ISP", ispValue)}
+            {composeStats("IP ADDRESS", ipAddressValue)}
+            {composeStats("LOCATION", locationValue)}
+            {composeStats("TIMEZONE", timezoneValue)}
+            {composeStats("ISP", ispValue)}
         </div>
     </div>
   )
 }
 
-export default IPData
+export default IpData
