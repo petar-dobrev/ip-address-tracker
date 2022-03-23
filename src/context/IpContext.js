@@ -3,7 +3,7 @@ import { isValidDomain } from "../utils/isValidAddress";
 
 const IpContext = createContext();
 const IPIFY_URL = "https://geo.ipify.org/api/v2/country,city";
-const IPIFY_API_KEY = "at_TkVUYo7jNxQubECoy6MYj4NBM691U";
+const IPIFY_API_KEY = process.env.IPIFY_API_KEY;
 
 export const IpProvider = ({ children }) => {
   const [address, setAddress] = useState("");
