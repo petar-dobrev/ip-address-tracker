@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import IpContext from "../context/IpContext";
 import { isValidAddress } from "../utils/isValidAddress";
 import Alert from "./Alert";
 
 function Search() {
    const {address, setAddress, fetchIp, setHideStats, setAlert} = useContext(IpContext)
+
+    useEffect(() => {
+      fetchIp();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
   
     const handleChange = (e) => {
        setAddress(e.target.value)

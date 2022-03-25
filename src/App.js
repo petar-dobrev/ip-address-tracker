@@ -1,8 +1,8 @@
 import "./index.css";
+import { IpProvider } from "./context/IpContext";
 import Header from "./components/Header";
 import IPData from "./components/IpData";
 import Map from "./components/Map";
-import { IpProvider } from "./context/IpContext";
 
 function App() {
   return (
